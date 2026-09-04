@@ -7,10 +7,16 @@
 .atom/
 .build/
 .buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
+# Sensitive & Secret files
+*.pem
+*.key
+*.p12
+*serviceAccount*.json
+*service-account*.json
+.env*
+*-debug.log*
+firebase-debug.log*
+firestore-debug.log*
 
 # IntelliJ related
 *.iml
