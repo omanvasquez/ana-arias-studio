@@ -23,7 +23,7 @@ class DefaultFirebaseOptions {
     }
   }
 
-  // Constantes parametrizables (Web / PWA como objetivo principal)
+  // Constantes del proyecto en producción
   static const String _projectId = String.fromEnvironment(
     'FIREBASE_PROJECT_ID',
     defaultValue: 'ana-arias-studio',
@@ -31,17 +31,17 @@ class DefaultFirebaseOptions {
 
   static const String _apiKey = String.fromEnvironment(
     'FIREBASE_API_KEY',
-    defaultValue: 'AIzaSy_ANA_ARIAS_STUDIO_API_KEY_PLACEHOLDER',
+    defaultValue: 'AIzaSyBWwOFiPuBV8w-qIEOqZZfJWkkfnhWW0Xk',
   );
 
   static const String _appId = String.fromEnvironment(
     'FIREBASE_APP_ID',
-    defaultValue: '1:000000000000:web:anaariasstudiopwa',
+    defaultValue: '1:311095160316:web:871a41ef5c958c67cb5679',
   );
 
   static const String _messagingSenderId = String.fromEnvironment(
     'FIREBASE_MESSAGING_SENDER_ID',
-    defaultValue: '000000000000',
+    defaultValue: '311095160316',
   );
 
   static const String _authDomain = String.fromEnvironment(

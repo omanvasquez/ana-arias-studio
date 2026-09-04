@@ -49,15 +49,11 @@ final sessionsRepositoryProvider = Provider<SessionsRepository>((ref) {
 });
 
 final signatureRepositoryProvider = Provider<SignatureRepository>((ref) {
-  return SignatureRepository(
-    storage: ref.watch(firebaseStorageProvider),
-  );
+  return SignatureRepository();
 });
 
 final photoRepositoryProvider = Provider<PhotoRepository>((ref) {
-  return PhotoRepository(
-    storage: ref.watch(firebaseStorageProvider),
-  );
+  return PhotoRepository();
 });
 
 // ==========================================

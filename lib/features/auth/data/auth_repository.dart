@@ -6,10 +6,8 @@ import '../domain/app_user.dart';
 class AuthRepository {
   final FirebaseAuth _firebaseAuth;
 
-  // Correos autorizados con privilegios de administración
+  // Correo de la cuenta administradora oficial del proyecto
   static const List<String> authorizedAdminEmails = [
-    'omanjrvasquez@gmail.com',
-    'omanvasquez@gmail.com',
     'omanpago@gmail.com',
   ];
 
