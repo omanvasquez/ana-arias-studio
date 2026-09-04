@@ -62,7 +62,7 @@ class UnauthorizedView extends ConsumerWidget {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'Esta aplicación es de uso exclusivo para la administradora autorizada (omanpago@gmail.com).',
+                      'Esta aplicación es de uso exclusivo para las administradoras autorizadas de Ana Arias Studio.',
                       style: GoogleFonts.montserrat(
                         fontSize: 11,
                         color: AppColors.textMuted,

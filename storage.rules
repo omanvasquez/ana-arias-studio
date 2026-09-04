@@ -6,7 +6,10 @@ service firebase.storage {
     }
 
     function isAdmin() {
-      return signedIn() && request.auth.token.email == 'omanpago@gmail.com';
+      return signedIn() && (
+        request.auth.token.email == 'omanpago@gmail.com' ||
+        request.auth.token.email == 'bdog1731@gmail.com'
+      );
     }
 
     // Firmas digitales capturadas en modo Kiosco

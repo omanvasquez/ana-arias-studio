@@ -1,9 +1,12 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Verificación de administrador autorizado (cuenta oficial del proyecto)
+    // Verificación de administradoras autorizadas
     function isAdmin() {
-      return request.auth != null && request.auth.token.email == 'omanpago@gmail.com';
+      return request.auth != null && (
+        request.auth.token.email == 'omanpago@gmail.com' ||
+        request.auth.token.email == 'bdog1731@gmail.com'
+      );
     }
 
     // Colección de clientes (Solo información estática)

@@ -47,23 +47,13 @@ class _LoginViewState extends ConsumerState<LoginView> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      width: 64,
-                      height: 64,
-                      decoration: BoxDecoration(
-                        color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'AA',
-                          style: GoogleFonts.playfairDisplay(
-                            color: AppColors.onPrimary,
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.5,
-                          ),
-                        ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        'assets/images/logo.png',
+                        width: 72,
+                        height: 72,
+                        fit: BoxFit.contain,
                       ),
                     ),
                     const SizedBox(height: 24),
@@ -168,7 +158,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      'Acceso exclusivo para la cuenta administradora: omanpago@gmail.com.',
+                      'Acceso exclusivo para las administradoras autorizadas (omanpago@gmail.com, bdog1731@gmail.com).',
                       style: GoogleFonts.montserrat(
                         fontSize: 11,
                         color: AppColors.textMuted,

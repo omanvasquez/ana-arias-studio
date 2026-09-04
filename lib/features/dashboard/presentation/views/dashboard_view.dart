@@ -39,22 +39,13 @@ class _DashboardViewState extends ConsumerState<DashboardView> with SingleTicker
       appBar: AppBar(
         title: Row(
           children: [
-            Container(
-              width: 34,
-              height: 34,
-              decoration: BoxDecoration(
-                color: AppColors.primary,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Center(
-                child: Text(
-                  'AA',
-                  style: GoogleFonts.playfairDisplay(
-                    color: AppColors.onPrimary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: 36,
+                height: 36,
+                fit: BoxFit.contain,
               ),
             ),
             const SizedBox(width: 12),
