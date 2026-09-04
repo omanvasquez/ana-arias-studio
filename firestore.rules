@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Verificación de administrador autorizado
+    function isAdmin() {
+      return request.auth != null && (
+        request.auth.token.email == 'omanjrvasquez@gmail.com' ||
+        request.auth.token.email == 'omanvasquez@gmail.com' ||
+        request.auth.token.email == 'omanpago@gmail.com'
+      );
+    }
+
+    // Colección de clientes (Solo información estática)
+    match /clientes/{clienteId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Colección de sesiones (Documentos independientes en la raíz)
+    // PROHIBIDO anidar sesiones dentro de clientes
+    match /sesiones/{sesionId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Bloqueo por defecto para cualquier otra ruta
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

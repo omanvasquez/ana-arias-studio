@@ -1,0 +1,33 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn() && (
+        request.auth.token.email == 'omanjrvasquez@gmail.com' ||
+        request.auth.token.email == 'omanvasquez@gmail.com' ||
+        request.auth.token.email == 'omanpago@gmail.com'
+      );
+    }
+
+    // Firmas digitales capturadas en modo Kiosco
+    match /firmas/{clienteId}/{fileName} {
+      allow read: if isAdmin();
+      allow write: if isAdmin()
+        && request.resource.size < 1 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    // Fotografías de tratamientos (Antes y Después)
+    // REGLA DE INFRAESTRUCTURA: Máximo ~500-600 KB para protección de los 5GB de Spark
+    match /fotos/{clienteId}/{fileName} {
+      allow read: if isAdmin();
+      allow write: if isAdmin()
+        && request.resource.size <= 600 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+  }
+}
